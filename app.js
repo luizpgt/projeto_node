@@ -3,9 +3,14 @@ const app = express();
 const db = require('./db/connection');
 const PORT = 3000;
 
+const bodyParser = require('body-parser');
+
 app.listen(PORT, function() {
   console.log(`Projeto Bomba Atomica Iniciado! ${PORT}`);
 });
+
+//body parser
+app.use(bodyParser.urlencoded({extended: false}));
 
 // db connection
 db
@@ -21,3 +26,8 @@ db
 app.get('/', (req,res) => {
   res.send("Atomic Bomb Project");
 });
+
+
+// jobs routes
+app.use('/jobs', require('./routes/jobs')); // todas rotas do jobs comecam com jobs
+
