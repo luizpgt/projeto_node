@@ -7,3 +7,18 @@ const sequelize = new Sequelize({
 });
 
 module.exports = sequelize;
+
+
+// script da tabela do banco app.db
+/*
+ *create table `jobs` ( 
+    `id` INTEGER PRIMARY KEY AUTOINCREMENT,
+    `title` TEXT, 
+    `salary` TEXT, 
+    `company` TEXT, 
+    `email` TEXT, 
+    `new` INTEGER, 
+    `createdAt` TEXT, 
+    `updatedAt` TEXT
+  );
+ */
