@@ -21,4 +21,8 @@ module.exports = sequelize;
     `createdAt` TEXT, 
     `updatedAt` TEXT
   );
+
+  alter table jobs add column description;
+  alter table jobs rename column new to new_job;
+  more at ::: https://www.sqlite.org/lang_altertable.html
  */
