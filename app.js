@@ -15,10 +15,13 @@ app.listen(PORT, function() {
 app.use(bodyParser.urlencoded({extended: false}));
 
 // handlebars
-app.set('views', path.join(__dirname, 'views'));
-app.engine('handlebars', exphbs({defaultLayout: 'main'}));
-app.set('view engine', 'handlebars');
+app.set('views', path.join(__dirname, 'views')); // onde estao as views
+app.engine('handlebars', exphbs.engine({defaultLayout: 'main'})); // arquivo principal de layout
+app.set('view engine', 'handlebars'); // qual a view engine
 
+
+// static folder
+app.use(express.static(path.join(__dirname, 'public')));
 // db connection
 db
   .authenticate()
@@ -31,7 +34,7 @@ db
 
 // rota
 app.get('/', (req,res) => {
-  res.send("Atomic Bomb Project");
+  res.render('layouts/index');
 });
 
 
