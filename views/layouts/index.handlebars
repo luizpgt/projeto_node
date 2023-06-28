@@ -1,7 +1,7 @@
 <div>
   <h1>Encontre emprego dos seus sonhos</h1>
   <p>Bla bla bla</p>
-  <form>
+  <form id="search-form" action="/" method="GET">
     <div>
       <input type="text" id="job" name="job" placeholder="digite a vaga que esta buscando">
     </div>
@@ -14,14 +14,18 @@
 <main>
   <div>
     <div>
+      {{#if search}}
+      <h2 id="job-list-title">buscando vagas que contem: {{search}}</h2>
+      {{else}}
       <h2 id="job-list-title">veja nossas vagas em destaque</h2>
+      {{/if}}
       <ul>
         {{#each jobs}}
         <li>
           <img src="img/company.svg" alt="">
           <p>{{dataValues.company}}</p>
           <h2>{{dataValues.title}}</h2>
-          <p>{{dataValues.salary}}</p>
+          <p>R${{dataValues.salary}}</p>
           {{#if dataValues.new_job }}<span class="new-job">nova!</span>{{/if}}
           <a href="">ver vaga</a>
         </li>
