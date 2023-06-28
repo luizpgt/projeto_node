@@ -4,6 +4,7 @@ const app = express();
 const path = require('path');
 const db = require('./db/connection');
 const PORT = 3000;
+const Job = require('./models/Job.js');
 
 const bodyParser = require('body-parser');
 
@@ -34,7 +35,11 @@ db
 
 // rota
 app.get('/', (req,res) => {
-  res.render('layouts/index');
+  Job.findAll({order: [
+    ['createdAt', 'DESC']
+  ]}).then(jobs=> {
+      res.render('layouts/index', {jobs});
+    });
 });
 
 

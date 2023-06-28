@@ -16,29 +16,16 @@
     <div>
       <h2 id="job-list-title">veja nossas vagas em destaque</h2>
       <ul>
+        {{#each jobs}}
         <li>
           <img src="img/company.svg" alt="">
-          <p>empresa</p>
-          <h2>titulo vaga</h2>
-          <p>2000</p>
-          <span>nova</span>
+          <p>{{dataValues.company}}</p>
+          <h2>{{dataValues.title}}</h2>
+          <p>{{dataValues.salary}}</p>
+          {{#if dataValues.new_job }}<span class="new-job">nova!</span>{{/if}}
           <a href="">ver vaga</a>
         </li>
-        <li>
-          <img src="img/company.svg" alt="">
-          <p>empresa</p>
-          <h2>titulo vaga</h2>
-          <p>2000</p>
-          <span>nova</span>
-          <a href="">ver vaga</a>
-        </li>
-        <li>
-          <img src="img/company.svg" alt="">
-          <p>empresa</p>
-          <h2>titulo vaga</h2>
-          <p>2000</p>
-          <a href="">ver vaga</a>
-        </li>
+          {{/each}}
       </ul>
     </div>
   </div>
